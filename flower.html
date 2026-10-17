@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Beautiful Wife 🥰</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(#fff0f6, #ffc1dc, #ffdeeb);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #b83280;
+}
+
+h1 {
+    padding: 25px 10px 0;
+    font-size: 27px;
+}
+
+.subtitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.bouquet {
+    position: relative;
+    width: 300px;
+    height: 340px;
+    margin: 0 auto;
+}
+
+.tulip {
+    position: absolute;
+    width: 60px;
+    height: 290px;
+    left: 120px;
+    top: 20px;
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.stem {
+    position: absolute;
+    width: 7px;
+    height: 250px;
+    left: 27px;
+    top: 35px;
+    background: linear-gradient(to right, #26753b, #64b867, #278443);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.leaf {
+    position: absolute;
+    width: 28px;
+    height: 85px;
+    left: -24px;
+    top: 85px;
+    background: linear-gradient(135deg, #8ddd91, #278443);
+    border-radius: 100% 0 100% 0;
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
+    border-right: 2px solid #26753b;
+    z-index: 2;
+}
+
+.leaf.right {
+    width: 25px;
+    height: 75px;
+    left: 3px;
+    top: 85px;
+    background: linear-gradient(135deg, #8ddd91, #278443);
+    border-radius: 0 100% 0 100%;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    border-left: 2px solid #26753b;
+    border-right: none;
+    z-index: 2;
+}
+
+.head {
+    position: absolute;
+    width: 60px;
+    height: 65px;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.petal {
+    position: absolute;
+    width: 30px;
+    height: 55px;
+    background: linear-gradient(to bottom, #ff80ab, #e91e63);
+    border-radius: 50% 50% 35% 35%;
+    box-shadow: inset 0 0 8px rgba(255,255,255,0.4);
+}
+
+.petal.one {
+    left: 0;
+    top: 8px;
+    transform: rotate(-25deg);
+}
+
+.petal.two {
+    left: 15px;
+    top: 0;
+}
+
+.petal.three {
+    left: 30px;
+    top: 8px;
+    transform: rotate(25deg);
+}
+
+.petal.center {
+    left: 15px;
+    top: 12px;
+    width: 30px;
+    height: 48px;
+    background: linear-gradient(to bottom, #ffb3ce, #f06292);
+    z-index: 2;
+}
+
+/* TRANSPARENT VASE AREA */
+.wrapper {
+    position: absolute;
+    width: 220px;
+    height: 175px;
+    left: 40px;
+    bottom: 0;
+    background: transparent;
+    clip-path: polygon(5% 0, 95% 0, 68% 100%, 32% 100%);
+    z-index: 3;
+}
+
+/* PINK SATIN RIBBON */
+.satin-ribbon {
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 65px;
+    z-index: 5;
+}
+
+.bow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.bow-loop {
+    position: absolute;
+    top: 3px;
+    width: 42px;
+    height: 30px;
+    background: linear-gradient(
+        135deg,
+        #ffd1e5 0%,
+        #ff80b5 35%,
+        #e91e63 70%,
+        #ffb6d9 100%
+    );
+    border: 1px solid #e75491;
+    box-shadow:
+        inset 0 2px 5px rgba(255,255,255,0.7),
+        0 3px 5px rgba(180,0,70,0.2);
+}
+
+.left-loop {
+    left: 5px;
+    border-radius: 70% 25% 60% 35%;
+    transform: rotate(25deg);
+}
+
+.right-loop {
+    right: 5px;
+    border-radius: 25% 70% 35% 60%;
+    transform: rotate(-25deg);
+}
+
+.bow-knot {
+    position: absolute;
+    width: 18px;
+    height: 22px;
+    left: 41px;
+    top: 8px;
+    border-radius: 6px;
+    background: linear-gradient(
+        90deg,
+        #e91e63,
+        #ffd1e5,
+        #ff69b4,
+        #c2185b
+    );
+    border: 1px solid #e75491;
+    z-index: 3;
+    box-shadow: 0 1px 4px rgba(150,0,50,0.25);
+}
+
+.bow-tail {
+    position: absolute;
+    top: 23px;
+    width: 24px;
+    height: 38px;
+    background: linear-gradient(
+        90deg,
+        #e91e63,
+        #ffb6d9,
+        #ff69b4,
+        #d81b60
+    );
+    border: 1px solid #e75491;
+    box-shadow: inset 0 1px 4px rgba(255,255,255,0.6);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%);
+}
+
+.left-tail {
+    left: 25px;
+    transform: rotate(18deg);
+}
+
+.right-tail {
+    right: 25px;
+    transform: rotate(-18deg);
+}
+
+button {
+    border: none;
+    padding: 13px 25px;
+    margin: 15px 5px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 12px rgba(255, 20, 147, 0.4);
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.message {
+    padding: 10px 25px 30px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* PHOTO POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background: rgba(70, 0, 35, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px 20px;
+    background: linear-gradient(145deg, #fff0f6, #ffc1dc);
+    border: 4px solid #ff69b4;
+    border-radius: 25px;
+    box-shadow:
+        0 0 15px #ff69b4,
+        0 0 30px #ff1493,
+        0 0 45px rgba(255, 105, 180, 0.7);
+    animation: popIn 0.5s ease;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #e91e63;
+}
+
+.popup-content img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 6px solid #ff69b4;
+    border-radius: 20px;
+    padding: 5px;
+    background: #fff0f6;
+    box-shadow:
+        0 0 12px #ff69b4,
+        0 0 25px #ffb6d9;
+    margin: 15px auto;
+}
+
+.popup-content p {
+    color: #b83280;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.close-btn {
+    background: linear-gradient(45deg, #ff69b4, #e91e63);
+}
+
+.flower {
+    position: fixed;
+    top: -30px;
+    font-size: 22px;
+    animation: fall linear forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>For My Beautiful Wife 🥰🤍</h1>
+<p class="subtitle">One tulip, a thousand feelings 🌷</p>
+
+<div class="bouquet">
+    <div class="tulip">
+        <div class="head">
+            <div class="petal one"></div>
+            <div class="petal two"></div>
+            <div class="petal three"></div>
+            <div class="petal center"></div>
+        </div>
+
+        <div class="stem">
+            <div class="leaf"></div>
+            <div class="leaf right"></div>
+        </div>
+    </div>
+
+    <div class="wrapper"></div>
+
+    <div class="satin-ribbon">
+        <div class="bow">
+            <div class="bow-loop left-loop"></div>
+            <div class="bow-loop right-loop"></div>
+            <div class="bow-knot"></div>
+            <div class="bow-tail left-tail"></div>
+            <div class="bow-tail right-tail"></div>
+        </div>
+    </div>
+</div>
+
+<button id="musicButton" onclick="toggleMusic()">
+    Play Music 🎵
+</button>
+
+<div class="message">
+    <p>
+        I love you so much mommy 🥰🤍<br>
+        This little tulip is just for you. 🤍🌷<br>
+        I love you always, my bebi! 🤍
+    </p>
+</div>
+
+<audio id="music" preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="popup" id="photoPopup">
+    <div class="popup-content">
+        <h2>My Favorite Person 💗</h2>
+
+        <img src="couple.jpg" alt="Our picture together">
+
+        <p>
+            I love you so much mommy ko🥰🤍 <br>
+            Please always remember that daddy loves you, <br>
+            No matter what happens, you will always be special to me🤍 🥰 
+            <br><br>
+            Have a good night bebi🥰🤍🌷 
+        </p>
+
+        <button class="close-btn" onclick="closePopup()">
+            Close 💕
+        </button>
+    </div>
+</div>
+
+<script>
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+const photoPopup = document.getElementById("photoPopup");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play()
+            .then(function() {
+                musicButton.innerHTML = "Pause Music ⏸️";
+                photoPopup.style.display = "flex";
+            })
+            .catch(function() {
+                alert("Please check that music.mp3 is in your project folder.");
+            });
+    } else {
+        music.pause();
+        musicButton.innerHTML = "Play Music 🎵";
+    }
+}
+
+function closePopup() {
+    photoPopup.style.display = "none";
+}
+
+function createFallingFlowers() {
+    const flower = document.createElement("div");
+    flower.className = "flower";
+    flower.innerHTML = Math.random() > 0.5 ? "🌸" : "💗";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(function() {
+        flower.remove();
+    }, 7000);
+}
+
+setInterval(createFallingFlowers, 500);
+</script>
+
+</body>
+</html>
